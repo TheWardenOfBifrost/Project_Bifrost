@@ -1,1 +1,23 @@
 git add . && git commit -m "docs: tilføj MVP+ flow" && git push
+
+Start ny (lukket server)
+
+2. Hver gang du vil starte serveren
+cd mvp\backend
+.\.venv\Scripts\activate
+python -m uvicorn src.api.main:app --reload --port 8000
+
+👉 http://127.0.0.1:8000/health
+
+👉 http://127.0.0.1:8000/version
+
+3. Stop serveren
+
+Gå tilbage til terminalen hvor den kører.
+
+Tryk: CTRL + C
+
+(Så stopper den og giver dig terminalen tilbage).
+
+4. Sluk det virtuelle miljø
+deactivate
