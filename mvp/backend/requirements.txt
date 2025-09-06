@@ -1,3 +1,14 @@
 ﻿fastapi==0.115.2
 uvicorn==0.30.6
 pydantic==2.9.2
+
+# --- Core framework ---
+fastapi==0.115.0          # Web framework
+uvicorn[standard]==0.30.6 # ASGI server (med reload mm.)
+
+# --- Data models & validation ---
+pydantic[email]==2.9.2    # Datamodeller + EmailStr
+email-validator==2.3.0    # Email validering (krævet af pydantic[email])
+
+# --- Utils (valgfrit, men nice to have for MVP) ---
+python-multipart==0.0.9   # hvis vi senere skal håndtere form-data uploads
