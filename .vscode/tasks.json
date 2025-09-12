@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "git: quick push (ps1)",
+      "type": "process",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", "tools/quick_commit.ps1"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

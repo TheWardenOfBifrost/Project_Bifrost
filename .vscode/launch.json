@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run API + quick push",
+      "type": "python",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["src.api.main:app", "--reload", "--host", "127.0.0.1", "--port", "8000"],
+      "console": "integratedTerminal",
+      "preLaunchTask": "git: quick push (ps1)",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
