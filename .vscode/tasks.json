@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "git: quick push (ps1)",
+      "label": "git: quick push",
       "type": "process",
       "command": "powershell",
       "args": [
@@ -10,6 +10,20 @@
         "-ExecutionPolicy", "Bypass",
         "-File", "tools/quick_commit.ps1"
       ],
+      "problemMatcher": []
+    },
+    {
+      "label": "run api (uvicorn task)",
+      "type": "process",
+      "command": "${workspaceFolder}/mvp/backend/.venv/Scripts/python.exe",
+      "args": [
+        "-m", "uvicorn",
+        "src.api.main:app",
+        "--reload",
+        "--host", "127.0.0.1",
+        "--port", "8001"
+      ],
+      "options": { "cwd": "${workspaceFolder}/mvp/backend" },
       "problemMatcher": []
     }
   ]
