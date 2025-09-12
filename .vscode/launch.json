@@ -10,6 +10,9 @@
       "console": "integratedTerminal",
       "preLaunchTask": "git: quick push (ps1)",
       "envFile": "${workspaceFolder}/.env"
+      "cwd": "${workspaceFolder}/mvp/backend"
+
     }
   ]
 }
+
