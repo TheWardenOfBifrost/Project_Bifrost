@@ -1,4 +1,7 @@
-﻿from fastapi import FastAPI, HTTPException, Query, Header
+﻿from fastapi import Query
+from sqlalchemy import text
+from src.api.db import engine
+from fastapi import FastAPI, HTTPException, Query, Header
 from pydantic import BaseModel, Field, EmailStr
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Literal
@@ -327,3 +330,26 @@ def _startup():
 @app.get("/health")
 def health():
     return {"ok": True}
+
+@app.get("/balances")
+def get_balances(user_id: int):
+    sql = """
+    SELECT a.code, ub.amount
+    FROM user_balances ub
+    JOIN assets a ON a.id = ub.asset_id
+    WHERE ub.user_id = :uid
+    ORDER BY a.code
+    """
+    with engine.connect() as conn:
+        rows = conn.execute(text(sql), {"uid": user_id}).mappings().all()
+    return {
+        "user_id": user_id,
+        "db": str(engine.url),   # hjælper os at se hvilken DB den bruger
+        "balances": [dict(r) for r in rows],
+    }
+from fastapi import Depends
+from src.api.db import engine
+
+@app.get("/debug/db")
+def debug_db():
+    return {"db": str(engine.url)}
