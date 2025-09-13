@@ -1,5 +1,21 @@
 ﻿# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
 .venv/
+
+# SQLite database
 bifrost.db
+
+# Environment variables
+.env
+
+# VSCode settings
+.vscode/
+
+# Alembic migrations cache
+alembic/__pycache__/
+alembic/versions/__pycache__/
