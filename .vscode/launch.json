@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "Run API Server",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "uvicorn",
       "args": [
